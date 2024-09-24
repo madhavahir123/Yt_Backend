@@ -6,3 +6,5 @@ class apirespones {
     this.success = statusCode < 400;
   }
 }
+
+export default apirespones;
