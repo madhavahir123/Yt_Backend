@@ -10,18 +10,17 @@ cloudinary.config({
 
 const uploadOnCloudinery = async (localFilePath) => {
   try {
-    console.log("localFilePath ==>", localFilePath);
     if (!localFilePath) return null;
+    //console.log("local patha ==>", localFilePath);
     const response = await cloudinary.uploader.upload(localFilePath, {
       resource_type: "auto",
     });
-    console.log("file is upload ion clouediney", response);
-    console.log("localFilePath ==>", localFilePath);
+    // console.log("respone video ==>", response);
     fs.unlinkSync(`./${localFilePath}`);
     return response;
   } catch (error) {
     console.log("uploadOnCloudinery error ==>", error);
-    fs.unlinkSync(localFilePath); //remove the locally saved temproary file as the upload operation got failed
+    fs.unlinkSync(localFilePath);
     return null;
   }
 };

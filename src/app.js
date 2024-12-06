@@ -1,7 +1,8 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-
+import userrouter from "./routes/User.routes.js";
+import videorouter from "./routes/Videos.routes.js";
 const app = express();
 app.use(
   cors({
@@ -15,6 +16,6 @@ app.use(express.urlencoded({ extended: true, limit: "20kb" }));
 app.use(express.static("public"));
 app.use(cookieParser());
 
-import userrouter from "./routes/User.routes.js";
 app.use("/api/v1/users", userrouter);
+app.use("/api/v2/video", videorouter);
 export default app;

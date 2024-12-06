@@ -9,7 +9,6 @@ const videoSchema = new mongoose.Schema(
     },
     thumbanil: {
       type: String, //clouedinary url
-      required: true,
     },
     title: {
       type: String,
@@ -20,7 +19,7 @@ const videoSchema = new mongoose.Schema(
       required: true,
     },
     duration: {
-      type: Number,
+      type: String,
       required: true,
     },
     views: {
@@ -39,4 +38,6 @@ const videoSchema = new mongoose.Schema(
   { timestamps: true }
 );
 videoSchema.plugin(mongooseaggregatepaginate);
-export const Video = mongoose.model("Video", videoSchema);
+const Video = mongoose.model("Video", videoSchema);
+
+export default Video;
